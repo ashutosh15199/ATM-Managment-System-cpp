@@ -12,7 +12,6 @@ private:
     char type[10];
     long long int acc_no;
     char email[100];
-    int atm_pin;
     long double acc_balance = 0.0;
 
 public:
@@ -29,11 +28,6 @@ public:
     long double getAccBalance()
     {
         return acc_balance;
-    }
-
-    int getPin()
-    {
-        return atm_pin;
     }
 
     void openAccount()
@@ -55,8 +49,6 @@ public:
         cin >> type;
         cout << "Enter the total balance : ";
         cin >> acc_balance;
-        cout << "Set ATM PIN (max. 4 digits): ";
-        cin >> atm_pin;
 
         accounts.open("accounts.dat", ios::out | ios::app | ios::binary);
         accounts.write((char *)this, sizeof(*this));
